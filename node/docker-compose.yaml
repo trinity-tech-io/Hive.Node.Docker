@@ -2,8 +2,8 @@ version: "3.4"
 
 services:
 
-  mongodb:
-    container_name: hive-mongodb
+  hivemongodb:
+    container_name: hivemongodb
     image: mongo:4.4.0
     volumes:
       - ./mongodb:/data/db
@@ -11,9 +11,9 @@ services:
       - "27017:27017"
     restart: always
 
-  ipfs:
-    container_name: hive-ipfs
-    image: ipfs/go-ipfs:master-2021-09-10-ef0428a
+  hiveipfs:
+    container_name: hiveipfs
+    image: trinitytech/hiveipfs:latest
     volumes:
       - ./ipfs/staging:/export
       - ./ipfs/data:/data/ipfs
@@ -24,11 +24,11 @@ services:
       - "8080:8080"
     restart: always
 
-  hive-node:
+  hivenode:
+    container_name: hivenode
     depends_on:
-      - mongodb
-      - ipfs
-    container_name: hive-node
+      - hivemongodb
+      - hiveipfs
     image: trinitytech/hivenode:latest
     volumes:
       - ./node/data:/hive/data

@@ -4,7 +4,7 @@ services:
 
   hive-ipfs:
     container_name: hive-ipfs
-    image: hive-ipfs:latest
+    image: trinitytech/hiveipfs:latest
     volumes:
       - ./staging:/export
       - ./data:/data/ipfs
