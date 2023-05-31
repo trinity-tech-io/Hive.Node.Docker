@@ -4,20 +4,19 @@ The support to build a Docker image for Hive IPFS service here is to add the IPF
 
 
 
-**The explanation of each files under this directory:**
+**The following files are located in the `ipfs` directory:**
 
-```txt
-|- ipfs
-		|- Dockerfile			# Dockerfile to build image of IPFS service for Hive node
-		|- init.sh				#	Script to add bootstrap nodes built into Docker image
-		|- BUILD.md    		# this BUILD.md document
-```
+- `Dockerfile`: Dockerfile to build image of IPFS service for Hive node.
+
+- `init.sh`: Script to add bootstrap nodes built into Docker image.
+
+- `BUILD.md`: This BUILD.md document.
 
 
 
 **Building a Docker image of IPFS service for Hive node**
 
-To build a Docker image of the IPFS service, run the following command under this directory:
+To build a Docker image of the IPFS service, run the following command under `ipfs` directory:
 
 ```shell
 $ docker build -f hive-ipfs .
