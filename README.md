@@ -14,10 +14,10 @@ The files and directories in this repository are organized in the following stru
 /-
  |- ipfs/BUILD.md  # The document to explain the content structure of ipfs part;
  |- node/BUILD.md  # The document to explain the content structure of node module
- |- .gitignore			# The git ignore file for this repo
- |- .env						# An env example to run the whole Hive node service for demonstration
- |- compose.yaml		# The docker compose file to deploy the whole hive node
- |- README.md			# This document README.md
+ |- .gitignore     # The git ignore file for this repo
+ |- .env           # An env example to run the whole Hive node service for demonstration
+ |- compose.yaml   # The docker compose file to deploy the whole hive node
+ |- README.md      # This document README.md
  |- LICENSE        # MIT license
 
 ```
