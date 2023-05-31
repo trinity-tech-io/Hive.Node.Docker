@@ -1,12 +1,10 @@
-version: "3.4"
-
 services:
 
   hivemongodb:
     container_name: hivemongodb
     image: mongo:4.4.0
     volumes:
-      - ./volumns/mongodb:/data/db
+      - ./volumes/mongodb:/data/db
     ports:
       - "27017:27017"
     restart: always
@@ -15,8 +13,8 @@ services:
     container_name: hiveipfs
     image: trinitytech/hiveipfs:latest
     volumes:
-      - ./volumns/ipfs/staging:/export
-      - ./volumns/ipfs/data:/data/ipfs
+      - ./volumes/ipfs/staging:/export
+      - ./volumes/ipfs/data:/data/ipfs
     ports:
       - "4001:4001"
       - "4001:4001/udp"
@@ -31,7 +29,7 @@ services:
       - hiveipfs
     image: trinitytech/hivenode:latest
     volumes:
-      - ./volumns/node/data:/hive/data
+      - ./volumes/node/data:/hive/data
       - ./.env:/hive/.env
     ports:
       - "5000:5000"
