@@ -58,7 +58,7 @@ $ cd Hive.Node.Docker
 Copy `.env` to the directory `Hive.Node.Docker`, run the command to compose the whole Hive node container services:
 
 ```shell
-$ docker compose-arm up -d
+$ docker compose -f compose-arm.yaml up -d
 ```
 
 If the deployment is successful, three container services with the names like **trintiytech/hiveipfs, trinitytech/hivenode, mongodb** are starting to run. 
