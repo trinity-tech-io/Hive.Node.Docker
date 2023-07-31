@@ -1,0 +1,4 @@
+FROM lscr.io/linuxserver/ipfs:latest
+
+COPY ./init.sh /docker-entrypoint.d/init_script.sh
+RUN chmod +x /docker-entrypoint.d/init_script.sh

@@ -1,0 +1,38 @@
+services:
+
+  hivemongodb:
+    container_name: hivemongodb
+    image: mongo:4.4.0
+    volumes:
+      - ./volumes/mongodb:/data/db
+    ports:
+      - "27017:27017"
+    restart: always
+
+  hiveipfs:
+    container_name: hiveipfs
+    image: chenyufei2022/hiveipfs:latest
+    #image: ipfs/go-ipfs:latest
+    #image: lscr.io/linuxserver/ipfs:latest
+    volumes:
+      - ./volumes/ipfs/staging:/export
+      - ./volumes/ipfs/data:/data/ipfs
+    ports:
+      - "4001:4001"
+      - "4001:4001/udp"
+      - "5001:5001"
+      - "8080:8080"
+    restart: always
+
+  hivenode:
+    container_name: hivenode
+    depends_on:
+      - hivemongodb
+      - hiveipfs
+    image: chenyufei2022/hivenode:latest
+    volumes:
+      - ./volumes/node/data:/hive/data
+      - ./.env:/hive/.env
+    ports:
+      - "5000:5000"
+    restart: always
